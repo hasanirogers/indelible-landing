@@ -1,0 +1,25 @@
+<%- include('partials/head.ejs', { title: title }) %>
+  <h1><%= title %></h1>
+  <hr />
+  <p><sl-button variant="primary" href="/create">Create Card</sl-button></p>
+  <section>
+    <ul class="card-list">
+      <% for (var i = 0; i < cards.length; i++) { %>
+        <li>
+          <div>
+            <h3>Card: <%= cards[i].id %></h3>
+            <span><%= cards[i].firstName %> <%= cards[i].lastName %></span>
+          </div>
+          <nav>
+            <sl-button href="/edit/<%= cards[i].id %>" variant="default" size="large">
+              Edit <sl-icon slot="suffix" name="pencil-square"></sl-icon>
+            </sl-button>
+            <sl-button href="/card/<%= cards[i].id %>" variant="default" size="large">
+              View <sl-icon slot="suffix" name="binoculars"></sl-icon>
+            </sl-button>
+          </nav>
+        </li>
+      <% } %>
+    </ul>
+  </section>
+<%- include('partials/footer.ejs', { title: title }) %>

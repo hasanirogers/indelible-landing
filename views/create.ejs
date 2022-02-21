@@ -1,0 +1,11 @@
+<%- include('partials/head.ejs', { title: title }) %>
+  <h1><%= title %></h1>
+  <p>&lsaquo; <a href="/dashboard"> Back to Dashboard</a></p>
+  <form id="create-card" action="/create" method="POST">
+    <p>Enter card information.</p>
+    <p><sl-input name="firstName" placeholder="First Name"></sl-input></p>
+    <p><sl-input name="lastName" placeholder="Last Name"></sl-input></p>
+    <p><sl-input name="email" placeholder="Email" type="email"></sl-input></p>
+    <p><sl-button type="submit">Create Card</sl-button></p>
+  </form>
+<%- include('partials/footer.ejs', { title: title }) %>
