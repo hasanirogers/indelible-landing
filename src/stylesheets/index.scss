@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --color-success: #00C642;
+}
+
 body {
   padding: 2rem;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -25,12 +29,12 @@ form {
 
   li {
     width: 100%;
-    display: flex;
+    display: grid;
     gap: 1rem;
     align-items: center;
-    justify-content: space-between;
+    grid-template-columns: 1fr auto auto;
     flex-direction: column;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
     margin-top: 1.5rem;
     border: 1px solid gray;
   }
@@ -42,15 +46,16 @@ form {
   }
 
   li:nth-child(odd) {
-    background: rgba(0,0,0,0.05);
-  }
-
-  h3 {
-    margin: 0 0 0.25rem 0;
+    background: rgba(0,0,0,0.025);
   }
 
   nav {
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
+  }
+
+  small {
+    display: block;
+    font-weight: normal;
   }
 }

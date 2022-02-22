@@ -1,15 +1,18 @@
 <%- include('partials/head.ejs', { title: title }) %>
-  <h1><%= title %></h1>
-  <hr />
+  <h1><%= title %> </h1>
   <p><sl-button variant="primary" href="/create">Create Page</sl-button></p>
+  <hr />
   <section>
     <ul class="pages">
       <% for (var i = 0; i < pages.length; i++) { %>
         <li>
-          <div>
-            <h3>Page: <%= pages[i].id %></h3>
-            <span><%= pages[i].firstName %> <%= pages[i].lastName %></span>
-          </div>
+          <h3>
+            <%= pages[i].firstName %> <%= pages[i].lastName %>
+            <% if (pages[i].email !== '') { %>
+              <small><%= pages[i].email %></small>
+            <% } %>
+          </h3>
+          <indelible-url page-id="<%= pages[i].id %>"></indelible-url>
           <nav>
             <sl-button href="/edit/<%= pages[i].id %>" variant="default" size="large">
               Edit <sl-icon slot="suffix" name="pencil-square"></sl-icon>
