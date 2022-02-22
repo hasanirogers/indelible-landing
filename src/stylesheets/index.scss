@@ -17,40 +17,40 @@ form {
   margin-top: 4rem;
 }
 
-.card-list {
+.pages {
   padding: 0;
   list-style: none;
   display: grid;
   margin-top: 1rem;
-}
 
-.card-list li {
-  width: 100%;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  padding: 0.5rem 1rem;
-  margin-top: 1.5rem;
-  border: 1px solid gray;
-}
-
-@media screen and (min-width: 640px) {
-  .card-list li {
-    flex-direction: row;
+  li {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+    margin-top: 1.5rem;
+    border: 1px solid gray;
   }
-}
 
-.card-list li:nth-child(odd) {
-  background: rgba(0,0,0,0.05);
-}
+  @media screen and (min-width: 640px) {
+    li {
+      flex-direction: row;
+    }
+  }
 
-.card-list h3 {
-  margin: 0 0 0.25rem 0;
-}
+  li:nth-child(odd) {
+    background: rgba(0,0,0,0.05);
+  }
 
-.card-list nav {
-  display: flex;
-  gap: 0.5rem;
+  h3 {
+    margin: 0 0 0.25rem 0;
+  }
+
+  nav {
+    display: flex;
+    gap: 0.5rem;
+  }
 }

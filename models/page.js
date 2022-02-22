@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 const emailValidator = require('email-validator');
 
-const CardSchema = mongoose.Schema({
+const PageSchema = mongoose.Schema({
   firstName: {
     type: String,
     required: true,
@@ -25,11 +25,22 @@ const CardSchema = mongoose.Schema({
       validator: emailValidator.validate,
       message: props => `${props.value} is not a valid email address`
     }
+  },
+  mediaType: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  mediaURL: {
+    type: String,
+    required: true,
+    trim: true,
+    minlength: 2
   }
 }, {
   timestamps: true,
 });
 
-CardSchema.plugin(AutoIncrement, {inc_field: 'id'});
+PageSchema.plugin(AutoIncrement, {inc_field: 'id'});
 
-module.exports = mongoose.model('Cards', CardSchema);
+module.exports = mongoose.model('Pages', PageSchema);

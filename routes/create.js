@@ -1,31 +1,31 @@
 const express = require('express');
 const router = express.Router();
-const CardModel = require('../models/card');
+const PageModel = require('../models/page');
 
 router.get('/', (request, response, next) => {
   const templateInfo = {
-    title: 'Create Card'
+    title: 'Create Page'
   };
 
   response.render('create', templateInfo);
 });
 
 router.post('/', async (request, response, next) => {
-  console.log(request.body);
-
   try {
-    const card = new CardModel({
+    const page = new PageModel({
       firstName: request.body.firstName,
       lastName: request.body.lastName,
-      email: request.body.email
+      email: request.body.email,
+      mediaType: request.body.mediaType,
+      mediaURL: request.body.mediaURL
     });
 
-    const savedCard = await card.save();
+    const savedPage = await page.save();
 
-    if (savedCard) {
+    if (savedPage) {
       return response.redirect('/create?success=true');
     } else {
-      return next(new Error('failed to save card'));
+      return next(new Error('failed to save page'));
     }
   } catch (error) {
     return next(error);

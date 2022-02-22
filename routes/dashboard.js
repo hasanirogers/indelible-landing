@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const CardModel = require('../models/card');
+const PageModel = require('../models/page');
 
 router.get('/', async (request, response, next) => {
-  const cards = await CardModel.find();
+  const pages = await PageModel.find();
 
   const templateInfo = {
     title: 'Dashboard',
-    cards: cards,
+    pages: pages,
   };
 
   response.render('dashboard', templateInfo);
