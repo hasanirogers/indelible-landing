@@ -17,10 +17,10 @@ const PageSchema = mongoose.Schema({
   },
   email: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
     lowercase: true,
-    index: { unique: true },
+    index: { unique: false },
     validate: {
       validator: emailValidator.validate,
       message: props => `${props.value} is not a valid email address`
@@ -35,7 +35,8 @@ const PageSchema = mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-    minlength: 2
+    minlength: 2,
+    index: { unique: true },
   }
 }, {
   timestamps: true,

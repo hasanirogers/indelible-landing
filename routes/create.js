@@ -4,7 +4,8 @@ const PageModel = require('../models/page');
 
 router.get('/', (request, response, next) => {
   const templateInfo = {
-    title: 'Create Page'
+    title: 'Create Page',
+    bodyClass: 'body--create'
   };
 
   response.render('create', templateInfo);

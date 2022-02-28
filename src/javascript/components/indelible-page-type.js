@@ -31,13 +31,15 @@ class IndeliblePageType extends LitElement {
   static get properties() {
     return {
       mediaType: {
-        type: String
+        type: String,
+        attribute: 'media-type'
       },
       mediaLabel: {
         type: String
       },
       mediaURL: {
-        type: String
+        type: String,
+        attribute: 'media-url'
       }
     }
   }
@@ -46,18 +48,21 @@ class IndeliblePageType extends LitElement {
     super();
 
     this.mediaType = 'audio';
-    this.mediaLabel = "Enter a url for the audio track.";
-    this.mediaURL = "";
+    this.mediaURL = '';
+  }
+
+  firstUpdated() {
+    this.mediaLabel = this.mediaType === 'audio' ? 'Enter a url for the audio track.' : 'Enter a url for the video.';
   }
 
   render() {
     return html`
       <section>
         <sl-radio-group label="Select a media type." fieldset>
-          <sl-radio value="audio" @sl-change=${event => this.handleRadio(event)} checked>Audio</sl-radio>
-          <sl-radio value="video" @sl-change=${event => this.handleRadio(event)}>Video</sl-radio>
+          <sl-radio value="audio" @sl-change=${event => this.handleRadio(event)} ?checked=${this.mediaType === 'audio'}>Audio</sl-radio>
+          <sl-radio value="video" @sl-change=${event => this.handleRadio(event)} ?checked=${this.mediaType === 'video'}>Video</sl-radio>
         </sl-radio-group>
-        <sl-input name="media" type="url" label=${this.mediaLabel} @sl-change=${event => this.handleInput(event)}></sl-input>
+        <sl-input name="media" type="url" label=${this.mediaLabel} value=${this.mediaURL} @sl-change=${event => this.handleInput(event)}></sl-input>
       </section>
     `;
   }

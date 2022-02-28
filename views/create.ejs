@@ -1,4 +1,4 @@
-<%- include('partials/head.ejs', { title: title }) %>
+<%- include('partials/head.ejs', { title: title, bodyClass: bodyClass }) %>
   <h1><%= title %></h1>
   <h2>&lsaquo; <a href="/dashboard"> Back to Dashboard</a></h2>
   <form id="create" action="/create" method="POST">
@@ -9,4 +9,4 @@
     <hr />
     <p><sl-button type="submit" variant="primary">Create Page</sl-button></p>
   </form>
-<%- include('partials/footer.ejs', { title: title }) %>
+<%- include('partials/footer.ejs') %>

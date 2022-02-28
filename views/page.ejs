@@ -1,4 +1,10 @@
-<%- include('partials/head.ejs', { title: title }) %>
-  <h1><%= title %></h1>
-  <p>Your page id is <%= pageId %></p>
+<%- include('partials/head.ejs', { title: title, bodyClass: bodyClass }) %>
+  <indelible-landing
+    url="<%= page.mediaURL %>"
+    media="<%= page.mediaType %>"
+    email="<%= page.email %>"
+    first-name="<%= page.firstName %>"
+    last-name="<%= page.lastName %>"
+  >
+  </indelible-landing>
 <%- include('partials/footer.ejs', { title: title }) %>

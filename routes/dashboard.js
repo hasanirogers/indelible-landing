@@ -8,7 +8,8 @@ router.get('/', async (request, response, next) => {
   const templateInfo = {
     title: 'Dashboard',
     pages: pages,
-    url: request.url
+    url: request.url,
+    bodyClass: 'body--dashboard'
   };
 
   response.render('dashboard', templateInfo);

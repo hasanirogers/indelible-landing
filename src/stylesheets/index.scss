@@ -8,9 +8,11 @@
   --color-success: #00C642;
 }
 
-body {
+body:not(.body--landing) {
   padding: 2rem;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  max-width: 1024px;
+  margin: auto;
 }
 
 a {
@@ -36,7 +38,7 @@ form {
     flex-direction: column;
     padding: 0.75rem 1.5rem;
     margin-top: 1.5rem;
-    border: 1px solid gray;
+    border: 1px solid lightgray;
   }
 
   @media screen and (min-width: 640px) {
@@ -58,4 +60,8 @@ form {
     display: block;
     font-weight: normal;
   }
+}
+
+.body--landing {
+  margin: 0;
 }
