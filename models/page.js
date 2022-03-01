@@ -37,6 +37,9 @@ const PageSchema = mongoose.Schema({
     trim: true,
     minlength: 2,
     index: { unique: true },
+  },
+  message: {
+    type: String,
   }
 }, {
   timestamps: true,

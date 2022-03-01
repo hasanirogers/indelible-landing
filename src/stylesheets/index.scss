@@ -34,8 +34,6 @@ form {
     display: grid;
     gap: 1rem;
     align-items: center;
-    grid-template-columns: 1fr auto auto;
-    flex-direction: column;
     padding: 0.75rem 1.5rem;
     margin-top: 1.5rem;
     border: 1px solid lightgray;
@@ -43,7 +41,7 @@ form {
 
   @media screen and (min-width: 640px) {
     li {
-      flex-direction: row;
+      grid-template-columns: 1fr auto auto;
     }
   }
 

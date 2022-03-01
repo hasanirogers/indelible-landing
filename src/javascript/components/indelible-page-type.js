@@ -17,7 +17,12 @@ class IndeliblePageType extends LitElement {
           display: grid;
           gap: 2rem;
           align-items: center;
-          grid-template-columns: auto 1fr;
+        }
+
+        @media (min-width: 640px) {
+          section {
+            grid-template-columns: auto 1fr;
+          }
         }
 
         sl-radio {

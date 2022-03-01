@@ -27,6 +27,9 @@ class IndelibleLanding extends LitElement {
       },
       lastName: {
         type: String
+      },
+      message: {
+        type: String
       }
     }
   }

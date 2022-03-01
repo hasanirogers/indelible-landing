@@ -18,7 +18,8 @@ router.post('/', async (request, response, next) => {
       lastName: request.body.lastName,
       email: request.body.email,
       mediaType: request.body.mediaType,
-      mediaURL: request.body.mediaURL
+      mediaURL: request.body.mediaURL,
+      message: request.body.message,
     });
 
     const savedPage = await page.save();
