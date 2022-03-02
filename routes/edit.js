@@ -23,16 +23,23 @@ router.post('/', async (request, response, next) => {
       mediaType: request.body.mediaType,
       mediaURL: request.body.mediaURL,
       message: request.body.message,
-    }
-
-    await PageModel.updateOne(query, newData);
-  } catch {
-    const templateInfo = {
-      title: 'Error',
-      bodyClass: `body--error`
     };
+    const options = { runValidators: true };
+    await PageModel.updateOne(query, newData, options, (error) => {
+      if (error) {
+        const responseData = {
+          message: 'ERROR',
+          code: 500,
+          body: error
+        };
 
-    response.render('error', templateInfo);
+        return response.status(500).json(responseData);
+      }
+    }).clone();
+
+    return response.status(200).json({ message: 'SUCCESS', code: 200 });
+  } catch {
+    console.error('There was an unknown error while trying to edit a page.');
   }
 });
 

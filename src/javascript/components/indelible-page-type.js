@@ -67,7 +67,7 @@ class IndeliblePageType extends LitElement {
           <sl-radio value="audio" @sl-change=${event => this.handleRadio(event)} ?checked=${this.mediaType === 'audio'}>Audio</sl-radio>
           <sl-radio value="video" @sl-change=${event => this.handleRadio(event)} ?checked=${this.mediaType === 'video'}>Video</sl-radio>
         </sl-radio-group>
-        <sl-input name="media" type="url" label=${this.mediaLabel} value=${this.mediaURL} @sl-change=${event => this.handleInput(event)}></sl-input>
+        <sl-input name="media" type="url" label=${this.mediaLabel} value=${this.mediaURL} @sl-change=${event => this.handleInput(event)} required></sl-input>
       </section>
     `;
   }

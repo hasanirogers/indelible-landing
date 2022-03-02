@@ -6,6 +6,7 @@
 
 :root {
   --color-success: #00C642;
+  --color-error: #ac0000;
 }
 
 body:not(.body--landing) {
@@ -21,6 +22,21 @@ a {
 
 form {
   margin-top: 4rem;
+
+  .submit {
+    margin: 2rem 0;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .message--error {
+    color: var(--color-error);
+  }
+
+  .message--success {
+    color: var(--color-success);
+  }
 }
 
 .pages {

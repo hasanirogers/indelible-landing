@@ -22,7 +22,9 @@ const PageSchema = mongoose.Schema({
     lowercase: true,
     index: { unique: false },
     validate: {
-      validator: emailValidator.validate,
+      validator: (email) => {
+        return emailValidator.validate(email) || email === '';
+      },
       message: props => `${props.value} is not a valid email address`
     }
   },
@@ -36,7 +38,6 @@ const PageSchema = mongoose.Schema({
     required: true,
     trim: true,
     minlength: 2,
-    index: { unique: true },
   },
   message: {
     type: String,

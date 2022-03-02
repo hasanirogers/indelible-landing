@@ -25,12 +25,18 @@ router.post('/', async (request, response, next) => {
     const savedPage = await page.save();
 
     if (savedPage) {
-      return response.redirect('/create?success=true');
+      return response.status(200).json({ message: 'SUCCESS', code: 200 });
     } else {
-      return next(new Error('failed to save page'));
+      return response.status(500).json({ message: 'ERROR', code: 500 });
     }
   } catch (error) {
-    return next(error);
+    const responseData = {
+      message: 'ERROR',
+      code: 500,
+      body: error
+    };
+
+    return response.status(500).json(responseData);
   }
 });
 
