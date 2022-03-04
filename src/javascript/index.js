@@ -7,6 +7,7 @@ import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.j
 
 import './components/indelible-landing';
 import './components/indelible-page-type';
+import './components/indelible-pagination';
 import './components/indelible-url';
 import './scripts/form-page';
 

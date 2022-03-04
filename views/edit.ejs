@@ -1,6 +1,6 @@
 <%- include('partials/head.ejs', { title: title, bodyClass: bodyClass }) %>
   <h1><%= title %></h1>
-  <h2>&lsaquo; <a href="/dashboard"> Back to Dashboard</a></h2>
+  <h2>&lsaquo; <a href="/dashboard?page=1&limit=10"> Back to Dashboard</a></h2>
   <form id="edit" action="/edit" method="POST">
     <p><sl-input name="firstName" label="First name." value="<%= page.firstName %>" required></sl-input></p>
     <p><sl-input name="lastName" label="Last name." value="<%= page.lastName %>" required></sl-input></p>

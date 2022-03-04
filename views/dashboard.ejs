@@ -25,4 +25,10 @@
       <% } %>
     </ul>
   </section>
+  <indelible-pagination
+    total="<%= pagination.totalPages %>"
+    current="<%= pagination.currentPage %>"
+    limit="<%=pagination.limit %>"
+  >
+  </indelible-pagination>
 <%- include('partials/footer.ejs', { title: title }) %>
