@@ -137,48 +137,48 @@ class IndeliblePagination extends LitElement {
   }
 
   makePreviousLink() {
-    if (this.previous) {
-      return html`<li class="previous" part="previous"><a href=${this.interpolate(this.linkPrevious, this.previous)}>${this.labelPrevious}</a></li>`;
-    }
-
     if (this.previous === 'disabled') {
       return html`<li class="previous disabled" part="previous"><span>${this.labelPrevious}</span></li>`;
+    }
+
+    if (this.previous) {
+      return html`<li class="previous" part="previous"><a href=${this.interpolate(this.linkPrevious, this.previous)}>${this.labelPrevious}</a></li>`;
     }
 
     return null;
   }
 
   makeNextLink() {
-    if (this.next) {
-      return html`<li class="next" part="next"><a href=${this.interpolate(this.linkNext, this.next)}>${this.labelNext}</a></li>`;
-    }
-
     if (this.next === 'disabled') {
       return html`<li class="next disabled" part="next"><span>${this.labelNext}</span></li>`;
+    }
+
+    if (this.next) {
+      return html`<li class="next" part="next"><a href=${this.interpolate(this.linkNext, this.next)}>${this.labelNext}</a></li>`;
     }
 
     return null;
   }
 
   makeFirstLink() {
-    if (this.first) {
-      return html`<li class="first" part="first"><a href=${this.interpolate(this.linkFirst, this.first)}>${this.labelFirst}</a></li>`;
-    }
-
     if (this.first === 'disabled') {
       return html`<li class="first disabled" part="first"><span>${this.labelFirst}</span></li>`;
+    }
+
+    if (this.first) {
+      return html`<li class="first" part="first"><a href=${this.interpolate(this.linkFirst, this.first)}>${this.labelFirst}</a></li>`;
     }
 
     return null;
   }
 
   makeLastLink() {
-    if (this.last) {
-      return html`<li class="last" part="last"><a href=${this.interpolate(this.linkLast, this.last)}>${this.labelLast}</a></li>`;
-    }
-
     if (this.last === 'disabled') {
       return html`<li class="last disabled" part="last"><span>${this.labelLast}</span></li>`;
+    }
+
+    if (this.last) {
+      return html`<li class="last" part="last"><a href=${this.interpolate(this.linkLast, this.last)}>${this.labelLast}</a></li>`;
     }
 
     return null;
