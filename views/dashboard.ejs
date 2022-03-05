@@ -25,10 +25,20 @@
       <% } %>
     </ul>
   </section>
-  <indelible-pagination
-    total="<%= pagination.totalPages %>"
-    current="<%= pagination.currentPage %>"
-    limit="<%=pagination.limit %>"
-  >
-  </indelible-pagination>
+  <% if (pagination.currentPage && pagination.limit) { %>
+    <indelible-pagination
+      link="/dashboard?page=[[current]]&limit=<%= pagination.limit %>"
+      link-previous="/dashboard?page=[[previous]]&limit=<%= pagination.limit %>"
+      link-next="/dashboard?page=[[next]]&limit=<%= pagination.limit %>"
+      link-first="/dashboard?page=[[first]]&limit=<%= pagination.limit %>"
+      link-last="/dashboard?page=[[last]]&limit=<%= pagination.limit %>"
+      total="<%= pagination.totalPages %>"
+      current="<%= pagination.currentPage %>"
+      <% if (pagination.previousPage) { %> previous="<%= pagination.previousPage %>"<% } else { %> previous="disabled" <% } %>
+      <% if (pagination.nextPage) { %> next="<%= pagination.nextPage %>"<% } else { %> next="disabled" <% } %>
+      <% if (pagination.currentPage !== 1) { %> first="1" <% } %>
+      <% if (pagination.currentPage !== pagination.totalPages) { %> last="<%= pagination.totalPages %>" <% } %>
+    >
+    </indelible-pagination>
+  <% } %>
 <%- include('partials/footer.ejs', { title: title }) %>

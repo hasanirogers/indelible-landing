@@ -3,26 +3,29 @@ const router = express.Router();
 const PageModel = require('../models/page');
 
 router.get('/', async (request, response, next) => {
-  const page = request.query.page;
-  const limit = request.query.limit;
+  const page = parseInt(request.query.page);
+  const limit = parseInt(request.query.limit);
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
 
   const paginatedPages = await PageModel.find().limit(limit).skip(startIndex);
   const allPages = await PageModel.find();
 
-  const pages = page && limit ? paginatedPages : allPages;
+  const total = Math.ceil(allPages.length / limit);
+  const pageData = page && limit ? paginatedPages : allPages;
 
   const templateInfo = {
     title: 'Dashboard',
-    pages: pages,
+    pages: pageData,
     url: request.url,
     pagination: {
       limit: limit,
       startIndex: startIndex,
       endIndex: endIndex,
-      totalPages: Math.ceil(allPages.length / limit),
-      currentPage: page
+      totalPages: total,
+      currentPage: page,
+      previousPage: page > 1 ? page - 1 : null,
+      nextPage: page < total ? page + 1 : null
     },
     bodyClass: 'body--dashboard'
   };
