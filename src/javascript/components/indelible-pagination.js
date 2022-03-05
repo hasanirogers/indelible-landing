@@ -15,6 +15,7 @@ class IndeliblePagination extends LitElement {
           font-size: 1.1rem;
           display: flex;
           gap: 1rem;
+          flex-wrap: wrap;
           margin: 0;
           padding: 0;
           list-style: none;
