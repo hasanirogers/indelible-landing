@@ -9,11 +9,14 @@
   --color-error: #ac0000;
 }
 
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
 body:not(.body--landing) {
   padding: 2rem;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  max-width: 1024px;
   margin: auto;
+  max-width: 1024px;
 }
 
 a {
