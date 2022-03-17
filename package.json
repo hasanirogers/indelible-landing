@@ -6,7 +6,8 @@
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "server": "nodemon ./bin/www",
-    "start": "npm-run-all --parallel server watch"
+    "start": "npm-run-all --parallel server watch",
+    "start:production": "forever start ./bin/www"
   },
   "dependencies": {
     "@shoelace-style/shoelace": "^2.0.0-beta.69",
