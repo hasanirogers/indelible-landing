@@ -17,6 +17,7 @@
             <sl-button href="/edit/<%= pages[i].id %>" variant="default" size="large">
               Edit <sl-icon slot="suffix" name="pencil-square"></sl-icon>
             </sl-button>
+            <indelible-delete page-id="<%= pages[i].id %>"></indelible-delete>
             <sl-button href="/page/<%= pages[i].id %>" variant="default" size="large">
               View <sl-icon slot="suffix" name="binoculars"></sl-icon>
             </sl-button>
