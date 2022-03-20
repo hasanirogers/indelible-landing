@@ -23,6 +23,8 @@ router.post('/', async (request, response, next) => {
       mediaType: request.body.mediaType,
       mediaURL: request.body.mediaURL,
       message: request.body.message,
+      websiteLink: request.body.websiteLink,
+      websiteLinkLabel: request.body.websiteLinkLabel,
     };
     const options = { runValidators: true };
     await PageModel.updateOne(query, newData, options, (error) => {

@@ -6,6 +6,8 @@
     first-name="<%= page.firstName %>"
     last-name="<%= page.lastName %>"
     <% if (page.message !== '') { %>message="<%= page.message %>"<% } %>
+    <% if (page.websiteLink) { %>website-link="<%= page.websiteLink %>"<% } %>
+    <% if (page.websiteLinkLabel) { %>website-link-label="<%= page.websiteLinkLabel %>"<% } %>
   >
   </indelible-landing>
 <%- include('partials/footer.ejs', { title: title }) %>

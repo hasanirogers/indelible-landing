@@ -41,6 +41,12 @@ const PageSchema = mongoose.Schema({
   },
   message: {
     type: String,
+  },
+  websiteLink: {
+    type: String,
+  },
+  websiteLinkLabel: {
+    type: String,
   }
 }, {
   timestamps: true,

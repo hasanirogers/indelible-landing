@@ -81,6 +81,14 @@ class IndelibleLanding extends LitElement {
           margin: auto;
           width: 100%;
         }
+
+        .link {
+          position: fixed;
+          top: 2rem;
+          right: 2rem;
+          z-index: 1;
+          text-decoration: none;
+        }
       `
     ];
   }
@@ -109,7 +117,15 @@ class IndelibleLanding extends LitElement {
       },
       showLogo: {
         type: Boolean
-      }
+      },
+      websiteLink: {
+        type: String,
+        attribute: 'website-link',
+      },
+      websiteLinkLabel: {
+        type: String,
+        attribute: 'website-link-label'
+      },
     }
   }
 
@@ -132,6 +148,7 @@ class IndelibleLanding extends LitElement {
     if (this.media === 'audio') {
       return html`
         <main class="audio">
+          ${this.websiteLink ? html`<a href="${this.websiteLink}" class="link">${this.websiteLinkLabel}</a>` : null}
           <audio controls autoplay>
             <source src=${this.convertURL(this.url)} type="audio/mpeg">
             Your browser does not support the audio element.
@@ -149,6 +166,7 @@ class IndelibleLanding extends LitElement {
 
     return html`
       <main class="video">
+        ${this.websiteLink ? html`<a href="${this.websiteLink}" class="link">${this.websiteLinkLabel}</a>` : null}
         <section>
           <video width="1920" height="1080" controls autoplay>
             <source src=${this.convertURL(this.url)} type="video/mp4" />
